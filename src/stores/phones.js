@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import axios from "axios";
 
 export const usePhoneStore = defineStore("phoneStore", () => {
@@ -15,6 +15,7 @@ export const usePhoneStore = defineStore("phoneStore", () => {
     if (page && phonesState.lastPage > phonesState.currentPage) {
       phonesState.currentPage++;
     }
+
     let url = `https://phone-specs-api.azharimm.dev/brands/${brandSlug}?page=${phonesState.currentPage}`;
     phonesState.loading = true;
     const { data, status } = await axios.get(url);
@@ -28,5 +29,13 @@ export const usePhoneStore = defineStore("phoneStore", () => {
     phonesState.loading = false;
   }
 
-  return { phonesState, getPhonesData };
+  function resetPhoneStore() {
+    phonesState.phones = [];
+    phonesState.loading = false;
+    phonesState.currentPage = 1;
+    phonesState.lastPage = 0;
+    phonesState.title = "";
+  }
+
+  return { phonesState, getPhonesData, resetPhoneStore };
 });

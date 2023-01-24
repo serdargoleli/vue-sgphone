@@ -33,7 +33,7 @@
             v-if="phonesState.lastPage > phonesState.currentPage"
           >
             {{ phonesState.lastPage }}| {{ phonesState.currentPage }}
-            <Button @click="setPageData(selectedBrand.brand_slug)">
+            <Button @click="getBrandPhones(selectedBrand.brand_slug)">
               Daha Fazla Gör</Button
             >
           </div>
@@ -72,11 +72,11 @@ const title = computed(() => {
 
 const setSelectedBrand = async (selected) => {
   selectedBrand.value = selected;
+  await phoneStore.resetPhoneStore();
   await phoneStore.getPhonesData(selected.brand_slug);
 };
 
-const setPageData = async (brandSlug) => {
-  console.log(brandSlug);
+const getBrandPhones = async (brandSlug) => {
   await phoneStore.getPhonesData(brandSlug, true);
 };
 onMounted(async () => {
