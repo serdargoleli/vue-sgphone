@@ -1,13 +1,17 @@
 <template>
+  <ProgressSpinner v-if="loading" />
+
   <Listbox
+    v-else
     v-model="seleced"
     :filter="true"
     :options="brands"
     :filterFields="['brand_name']"
-    listStyle="max-height:550px; height:550px"
+    emptyMessage="Brand Not Found"
+    listStyle="max-height:1550px; height:1550px"
     class="w-full border-none"
     @change="changeHandler($event)"
-    :lazy="true"
+    :loader="{ showloader }"
   >
     <template #option="slotProps">
       <div
@@ -24,6 +28,7 @@
 </template>
 
 <script setup>
+import ProgressSpinner from "primevue/progressspinner";
 import { ref } from "vue";
 import Listbox from "primevue/listbox";
 import Badge from "primevue/badge";
