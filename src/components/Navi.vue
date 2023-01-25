@@ -5,19 +5,23 @@
   >
     <template #start>
       <router-link to="/">
-        <img class="mr-3" style="width: 130px" src="@/assets/logo.png" alt="Serdar Göleli" />
+        <img
+          class="mr-3"
+          style="width: 130px"
+          src="@/assets/logo.png"
+          alt="Serdar Göleli"
+        />
       </router-link>
     </template>
 
     <template #item="{ item }">
-      <a
+      <router-link
         class="p-menuitem-link text-white-alpha-50 hover:text-orange-500"
-        :href="item.href"
+        :to="item.href"
         :key:string="item.label"
-        target="_blank"
       >
         {{ item.label }}
-      </a>
+      </router-link>
     </template>
   </Menubar>
 </template>
@@ -28,13 +32,8 @@ import Menubar from "primevue/menubar";
 
 const items = ref([
   {
-    label: "Github",
-    href: "https://github.com/serdargoleli/",
-  },
-
-  {
-    label: "Linkedin",
-    href: "https://www.linkedin.com/in/serdargoleli/",
+    label: "Top By Fans",
+    href: "/top-by-fans",
   },
 ]);
 </script>
