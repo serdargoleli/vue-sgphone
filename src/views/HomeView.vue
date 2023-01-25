@@ -101,6 +101,8 @@ const localState = computed(() => {
     title = lastestPhonesState.title.toUpperCase();
     loading = lastestPhonesState.loading;
   }
+  document.title = title + " SGPHONE";
+  
   return { phones, title, loading };
 });
 </script>

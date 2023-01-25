@@ -133,6 +133,7 @@ onMounted(async () => {
   scrollToTop();
   if (Object.keys(detailsState.details).length <= 0)
     await phoneDetailsStore.getPhoneDetails(route.params.slug);
+    document.title = `${detailsState.details.brand} ~ ${detailsState.details.phone_name} | SGPHONE `;
 });
 
 onUnmounted(() => {

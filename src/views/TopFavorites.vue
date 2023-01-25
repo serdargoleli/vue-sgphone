@@ -9,7 +9,6 @@
         :value="topFavoritesState.phones"
         responsiveLayout="scroll"
         :rowHover="true"
-
       >
         <template #header>
           <div class="flex justify-content-between p-3">
@@ -64,7 +63,8 @@ const exportCSV = () => {
 };
 onMounted(async () => {
   if (topFavoritesState.phones.length <= 0) {
-    topFavoritesStore.getTopFavorites();
+    await topFavoritesStore.getTopFavorites();
   }
+  document.title = `${topFavoritesState.title} | SGPHONE`;
 });
 </script>
