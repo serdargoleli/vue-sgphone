@@ -10,7 +10,6 @@ import "primevue/resources/primevue.min.css ";
 import "primeicons/primeicons.css";
 import "/node_modules/primeflex/primeflex.css";
 import "primevue/resources/themes/md-dark-indigo/theme.css";
-import "./assets/main.css";
 
 import "./assets/main.css";
 

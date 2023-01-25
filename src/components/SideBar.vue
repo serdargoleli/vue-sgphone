@@ -8,8 +8,9 @@
     :options="brands"
     :filterFields="['brand_name']"
     emptyMessage="Brand Not Found"
-    listStyle="max-height:1550px; height:1550px"
+    listStyle="max-height:550px; height:550px "
     class="w-full border-none"
+    filterPlaceholder="Brand search"
     @change="changeHandler($event)"
   >
     <template #option="slotProps">

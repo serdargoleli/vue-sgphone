@@ -31,7 +31,10 @@
             class="col-12 text-center"
             v-if="brandPhonesState.lastPage > brandPhonesState.currentPage"
           >
-            <Button @click="getBrandPhones(selectedBrand.brand_slug)">
+            <Button
+              class="bg-orange-500"
+              @click="getBrandPhones(selectedBrand.brand_slug)"
+            >
               Daha Fazla Gör</Button
             >
           </div>
