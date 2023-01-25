@@ -11,7 +11,6 @@
     listStyle="max-height:1550px; height:1550px"
     class="w-full border-none"
     @change="changeHandler($event)"
-    :loader="{ showloader }"
   >
     <template #option="slotProps">
       <div

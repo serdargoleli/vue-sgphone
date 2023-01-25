@@ -18,6 +18,10 @@ const router = createRouter({
         },
       ],*/
     },
+    {
+      path: "/phone/:slug?",
+      component: HomeView,
+  },
   ],
 });
 
