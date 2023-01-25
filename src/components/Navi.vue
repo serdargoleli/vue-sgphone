@@ -23,6 +23,21 @@
         {{ item.label }}
       </router-link>
     </template>
+    <template #end>
+      <a
+        class="text-white-alpha-20 no-underline hover:text-blue-500"
+        href="https://github.com/serdargoleli/"
+        target="_blank"
+      >
+        <i class="pi pi-github text-3xl mr-3"></i>
+      </a>
+      <a
+        class="text-white-alpha-20 no-underline hover:text-blue-500"
+        href="https://www.linkedin.com/in/serdargoleli/"
+        target="_blank"
+        ><i class="pi pi-linkedin text-3xl"></i>
+      </a>
+    </template>
   </Menubar>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-nogutter">
+  <div class="grid grid-nogutter flex-column-reverse md:flex-row">
     <div class="col-12 md:col-7">
       <div
         class="flex flex-column justify-content-center align-items-start h-full md:w-9"
