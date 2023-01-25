@@ -12,16 +12,20 @@
       <div class="col-12 lg:col-9">
         <Card>
           <template #content>
-            <h1 class="text-2xl">{{ title }}</h1>
+            <h1 class="text-2xl">{{ localState.title }}</h1>
           </template>
         </Card>
 
         <div class="grid mt-3">
-          <div class="col-6 md:col-3" v-for="phone in phones" :key="phone.slug">
+          <div
+            class="col-6 md:col-3"
+            v-for="phone in localState.phones"
+            :key="phone.slug"
+          >
             <ProductCard :phone="phone" />
           </div>
 
-          <ProgressSpinner v-if="loading" />
+          <ProgressSpinner v-if="localState.loading" />
 
           <div
             class="col-12 text-center"
@@ -81,25 +85,19 @@ onMounted(async () => {
   }
 });
 
-const title = computed(() => {
-  if (brandPhonesState.phones.length > 0) {
-    return brandPhonesState.title.toUpperCase();
+const localState = computed(() => {
+  let phones = [];
+  let title = "";
+  let loading = false;
+  if (selectedBrand != null && Object.keys(selectedBrand.value).length > 0) {
+    phones = brandPhonesState.phones;
+    title = brandPhonesState.title.toUpperCase();
+    loading = brandPhonesState.loading;
   } else {
-    return lastestPhonesState.title;
+    phones = lastestPhonesState.phones;
+    title = lastestPhonesState.title.toUpperCase();
+    loading = lastestPhonesState.loading;
   }
-});
-
-const phones = computed(() => {
-  if (selectedBrand != null && Object.keys(selectedBrand.value).length > 0) {
-    return brandPhonesState.phones;
-  }
-  return lastestPhonesState.phones;
-});
-
-const loading = computed(() => {
-  if (selectedBrand != null && Object.keys(selectedBrand.value).length > 0) {
-    return brandPhonesState.loading;
-  }
-  return lastestPhonesState.loading;
+  return { phones, title, loading };
 });
 </script>
